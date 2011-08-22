@@ -1,6 +1,12 @@
 ### Redirects in the cloud?
 
-A simple rack app using [refraction](https://github.com/pivotal/refraction) and [Heroku](http://heroku.com/) to redirect things around the web.
+A simple rack app built using [refraction](https://github.com/pivotal/refraction) that I host at [Heroku](http://heroku.com/) and use their custom domain support to redirect old domains around the web.
+
+### Current Uses
+
+    http://*/xml/atom/feed.xml -> http://feeds.jnewland.com/JesseNewland
+    http://feeds.jnewland.com/* -> http://feeds.feedburner.com/*
+    http://*/* -> http://jnewland.github.com/*
 
 #### Setup
 
