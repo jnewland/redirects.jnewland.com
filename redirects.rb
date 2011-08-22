@@ -5,7 +5,7 @@ use Refraction
 
 Refraction.configure do |req|
 
-  case req.domain
+  case req.host
   when 'feeds.jnewland.com'
     req.found! "http://feeds.feedburner.com#{req.path}"
   else
