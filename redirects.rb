@@ -5,13 +5,16 @@ use Refraction
 
 Refraction.configure do |req|
 
-  case req.path
-  when '/atom.xml'
-    if req.env['HTTP_USER_AGENT'] !~ /FeedBurner|FeedValidator/
-      req.found! 'http://feeds.feedburner.com/JesseNewland'
-    end
+  case req.domain
+  when 'feeds.jnewland.com'
+    req.found! "http://feeds.feedburner.com#{req.path}"
   else
-    req.permanent! "http://jnewland.github.com#{req.path}"
+    case req.path
+    when '/xml/atom/feed.xml'
+      req.permanent! "http://feeds.jnewland.com/JesseNewland"
+    else
+      req.permanent! "http://jnewland.github.com#{req.path}"
+    end
   end
 
 end
